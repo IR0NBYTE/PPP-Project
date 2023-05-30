@@ -1,0 +1,14 @@
+./.git
+
+./.gitignore
+./temp/
+
+./serverORM/.gitignore
+./serverORM/README.md
+
+dbDump20230305
+
+./client/.gitignore
+./client/README.md
+./client/package-lock.json
+./client/generate-react-cli.json

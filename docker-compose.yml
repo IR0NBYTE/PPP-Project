@@ -1,0 +1,29 @@
+version: "3.8"
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  app:
+    image: ironbyte.azurecr.io/server
+    container_name: Management_APP_Server
+    build: 
+      context: ./serverORM/
+      dockerfile: Dockerfile
+    ports:
+      - 5000
+    networks:
+      - app-tier
+
+  client:
+    image: ironbyte.azurecr.io/client
+    container_name: Management_APP_Client
+    depends_on:
+      - app
+    build: 
+      context: ./client/
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    networks:
+      - app-tier
